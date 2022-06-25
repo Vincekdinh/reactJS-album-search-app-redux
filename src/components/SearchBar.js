@@ -1,35 +1,44 @@
-import React from "react";
-import "../App.css";
+import * as React from "react";
 
 class SearchBar extends React.Component {
-  state = { term: "" };
+  state = { term: ""};
 
   onFormSubmit = (event) => {
     event.preventDefault();
     console.log(this.state.term);
-    this.props.onSubmit(this.state.term);
+    if(this.state.term === ""){
+        alert("Don't stop believing...")
+    } else { 
+        this.props.onSubmit(this.state.term);
+        this.setState({ term: ''})
+    }
   };
 
   render() {
     return (
-      <nav className='album__navbar'>
-        <section className='album__search'>
-          <form className='album__search-action' onSubmit={this.onFormSubmit}>
-            <input
-              className='album__search-query'
-              type='text'
-              onChange={(e) => this.setState({ term: e.target.value })}
-              value={this.state.term}
-              placeholder='Artist name...'
-            />
-            <input
-              type='submit'
-              value='Search'
-              className='album__search-button'
-            />
-          </form>
-        </section>
-      </nav>
+    <nav className='album__navbar'>
+        <div className="ui inverted blue segment">
+            <form className='ui form' onSubmit={this.onFormSubmit}>
+                <div className="ui search large">
+                    <div className="ui icon input">
+                        <input 
+                            className="prompt" 
+                            type="text" 
+                            placeholder="Artist name..."
+                            value={this.state.term}
+                            onChange={(e) => this.setState({ term: e.target.value })}/>
+                    </div>
+                    <button 
+                        className="ui button large"
+                        type="submit"
+                        value="search">
+                        <i className="search icon"></i>
+                        Search
+                    </button>
+                </div>
+            </form>   
+        </div>
+    </nav>
     );
   }
 }
