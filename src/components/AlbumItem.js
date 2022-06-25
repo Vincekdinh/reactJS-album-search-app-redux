@@ -2,13 +2,15 @@ import React, { Component } from "react";
 
 class AlbumItem extends Component {
   render() {
+    const { artworkUrl100, collectionName } = this.props.album
+
     return (
       <div className="ui card">
         <div className="image">
-          <img src={this.props.album.artworkUrl100}/>
+          <img alt={collectionName} src={artworkUrl100}/>
         </div>
         <div className="content">
-          <h4 className="ui header">{this.props.album.collectionCensoredName}</h4>
+          <h4 className="ui header">{collectionName}</h4>
           </div>
         </div>
     );
