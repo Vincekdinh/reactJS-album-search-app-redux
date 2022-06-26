@@ -1,4 +1,4 @@
-### Live demo: https://app.netlify.com/sites/albumsearchapp-redux/settings/general
+### Live demo: https://albumsearchapp-redux.netlify.app
 
 # Getting Started with Create React App
 
